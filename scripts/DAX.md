@@ -186,3 +186,63 @@ SWITCH(
     "All"
 ) & " by Month"
 ```
+
+```dax
+-- Dynamic Title for Chart 2 (Term wise Analysis - Donut Chart)
+Dynamic Title 2 = 
+SWITCH(
+    TRUE(),
+    MAX('Parameter'[Parameter Order]) = 0, "Total Loan Applications",
+    MAX('Parameter'[Parameter Order]) = 1, "Total Funded Amount",
+    MAX('Parameter'[Parameter Order]) = 2, "Total Amuont Recieved",
+    "All"
+) & " by Term"
+```
+
+```dax
+-- Dynamic Title for Chart 3 (Address based Analysis - Azure Maps Visual)
+Dynamic Title 3 = 
+SWITCH(
+    TRUE(),
+    MAX('Parameter'[Parameter Order]) = 0, "Total Loan Applications",
+    MAX('Parameter'[Parameter Order]) = 1, "Total Funded Amount",
+    MAX('Parameter'[Parameter Order]) = 2, "Total Amuont Recieved",
+    "All"
+) & " by Address"
+```
+
+```dax
+-- Dynamic Title for Chart 4 (Analysis based on Employee Length - Bar Chart)
+Dynamic Title 4 = 
+SWITCH(
+    TRUE(),
+    MAX('Parameter'[Parameter Order]) = 0, "Total Loan Applications",
+    MAX('Parameter'[Parameter Order]) = 1, "Total Funded Amount",
+    MAX('Parameter'[Parameter Order]) = 2, "Total Amuont Recieved",
+    "All"
+) & " by Employee Length"
+```
+
+```dax
+-- Dynamic Title for Chart 5 (Analysis based on Home Ownership - Treemap Visual)
+Dynamic Title 5 = 
+SWITCH(
+    TRUE(),
+    MAX('Parameter'[Parameter Order]) = 0, "Total Loan Applications",
+    MAX('Parameter'[Parameter Order]) = 1, "Total Funded Amount",
+    MAX('Parameter'[Parameter Order]) = 2, "Total Amuont Recieved",
+    "All"
+) & " by Home Ownership"
+```
+
+```dax
+-- Dynamic Title for Chart 6 (Analysis based on Purpose of Loan - Bar Chart)
+Dynamic Title 6 = 
+SWITCH(
+    TRUE(),
+    MAX('Parameter'[Parameter Order]) = 0, "Total Loan Applications",
+    MAX('Parameter'[Parameter Order]) = 1, "Total Funded Amount",
+    MAX('Parameter'[Parameter Order]) = 2, "Total Amuont Recieved",
+    "All"
+) & " by Purpose"
+```
