@@ -107,4 +107,82 @@ MoM DTI = ([MTD DTI]-[PMTD DTI])/[PMTD DTI]
 ```
 
 
+## Good Loans
+```dax
+-- Calculating count good loans
+Good Loan Applications = CALCULATE(   [Total Loan Applications], bank_loan_analysis[loan_status (groups)]="Good Loan"   )
+```
+## Good Loan Percentage
+```dax
+-- Calculating percent of good loans to total loans.
+Good Loan Percent = [Good Loan Applications]/[Total Loan Applications]
+```
+## Good Loan Funded Amount
+```dax
+-- Calculating Total Funded Amount for Good Loans.
+Good Loan Funded Amount = CALCULATE(   [Total Funded Amount], bank_loan_analysis[loan_status (groups)]="Good Loan"   )
+```
+## Good Loan Amount Recieved
+```dax
+-- Calculating Total Amount Recieved for Good Loans.
+Good Loan Amount Recieved = CALCULATE(   [Total Recieved Amount], bank_loan_analysis[loan_status (groups)]="Good Loan"   )
+```
 
+
+## Bad Loans
+```dax
+-- Calculating count bad loans
+Bad Loan Applications = CALCULATE(   [Total Loan Applications], bank_loan_analysis[loan_status (groups)]="Bad Loan"   )
+```
+## Bad Loan Percentage
+```dax
+-- Calculating percent of bad loans to total loans.
+Bad Loan Percent = [Bad Loan Applications]/[Total Loan Applications]
+```
+## Bad Loan Funded Amount
+```dax
+-- Calculating Total Funded Amount for Bad Loans.
+Bad Loan Funded Amount = CALCULATE(   [Total Funded Amount], bank_loan_analysis[loan_status (groups)]="Bad Loan"   )
+```
+## Bad Loan Amount Recieved
+```dax
+-- Calculating Total Amount Recieved for Bad Loans.
+Bad Loan Amount Recieved = CALCULATE(   [Total Recieved Amount], bank_loan_analysis[loan_status (groups)]="Bad Loan"   )
+```
+
+
+## Creating Date Table
+```dax
+-- Creating a Date Table out of our data.
+DateTable = CALENDAR(  MIN(bank_loan_analysis[issue_date]), MAX(bank_loan_analysis[issue_date])   )
+```
+
+
+## Creating a Parameter Table 
+```dax
+-- Creating a Parameter Table to dynamically switch Measures in visuals using a slicer
+-- Note: Parameter Table is created not measure.
+Parameter = {
+    ("Total Loan Applications", NAMEOF('bank_loan_analysis'[Total Loan Applications]), 0),
+    ("Total Funded Amount", NAMEOF('bank_loan_analysis'[Total Funded Amount]), 1),
+    ("Total Amount Recieved", NAMEOF('bank_loan_analysis'[Total Amount Recieved]), 2)
+}
+-- {...} --> Creates a Table
+-- NAMEOF()--> Safely references a measure or column name, prevents error if the name changes.
+-- 0,1,2(Sort Order) --> Sort Order decides the position of measures in slicers and visuals when using Field Parameters.
+```
+
+
+## Creating Dynamic slicers
+# Creating Dynamic Titles that change based upon the value of slicer
+```dax
+-- Dynamic Title for Chart 1 (Month wise Analysis - Line Chart)
+Dynamic Title 1 = 
+SWITCH(
+    TRUE(),
+    MAX('Parameter'[Parameter Order]) = 0, "Total Loan Applications",
+    MAX('Parameter'[Parameter Order]) = 1, "Total Funded Amount",
+    MAX('Parameter'[Parameter Order]) = 2, "Total Amuont Recieved",
+    "All"
+) & " by Month"
+```
