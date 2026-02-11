@@ -97,10 +97,22 @@ Record-level insights with drill-down capability:
 
 ## 📂 Project Structure
 ```text
-├── Dashboard Screenshots
-│   ├── Summary Page.png
-│   ├── Overview Page.png
-│   └── Details Page.png
-├── DAX Measures
-├── Power BI (.pbix) file
+├── datasets/
+│   └── financial_loan_full.csv
+│
+├── images/
+│   ├── Bank_Logo.png
+│   ├── Overview.png
+│   ├── Summary.png
+│   ├── Details.png
+│   └── bg.png
+│
+├── powerbi/
+│   ├── bank_loan_analysis.pbix
+│   └── README.md
+│
+├── scripts/
+│   └── DAX.md
+│
+├── LICENSE
 └── README.md
