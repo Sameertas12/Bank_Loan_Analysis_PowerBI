@@ -1,20 +1,21 @@
 -------------------------------------------------------------------------------------------------------------------------------------
 ## Total Loan Applications
-
 ```dax
 -- Creating Measure for Total Loan Applications
 Total Loan Applications = COUNT ( bank_loan_analysis[id] )
 ```
 
 ## MTD Loan Applications
+```dax
 -- Creating Measure for MTD Loan Applications --
-Formula: MTD Loan Applications = CALCULATE(   TOTALMTD([Total Loan Applications], DateTable[Date])   )
+MTD Loan Applications = CALCULATE(   TOTALMTD([Total Loan Applications], DateTable[Date])   )
+```
 
 -- Calculating Previous Month to Date Loan Applications which is used to find MoM Loan Applications --
-Formula: PMTD Loan Applications = CALCULATE(   [Total Loan Applications], DATESMTD(DATEADD(DateTable[Date], -1, MONTH))   )
+PMTD Loan Applications = CALCULATE(   [Total Loan Applications], DATESMTD(DATEADD(DateTable[Date], -1, MONTH))   )
 
 -- Creating Measure for MoM Loan Applications --
-Formula: MoM Loan Applications = ([MTD Loan Applications]-[PMTD Loan Applications])/[PMTD Loan Applications]
+MoM Loan Applications = ([MTD Loan Applications]-[PMTD Loan Applications])/[PMTD Loan Applications]
 
 -------------------------------------------------------------------------------------------------------------------------------------
 
