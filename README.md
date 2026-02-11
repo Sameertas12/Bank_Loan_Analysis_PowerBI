@@ -36,7 +36,7 @@ High-level KPIs and performance indicators:
 - Average DTI
 - MTD & MoM comparisons
 
-![Summary Page](Screenshot%202026-02-09%20150155.png)
+![Summary Page](images/Summary.png)
 
 ---
 
@@ -49,7 +49,7 @@ Visual analysis and trends:
 - Home ownership breakdown
 - Geographic distribution (Map)
 
-![Overview Page](Screenshot%202026-02-09%20150211.png)
+![Overview Page](images/Overview.png)
 
 ---
 
@@ -61,7 +61,7 @@ Record-level insights with drill-down capability:
 - Loan grades and sub-grades
 - Filterable table for deep analysis
 
-![Details Page](Screenshot%202026-02-09%20150228.png)
+![Details Page](images/Details.png)
 
 ---
 
