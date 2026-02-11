@@ -1,7 +1,8 @@
 -------------------------------------------------------------------------------------------------------------------------------------
 
 -- Creating Measure for Total Loan Applications --
-Formula: Total Loan Applications = COUNT(bank_loan_analysis[id])
+-- Formula: 
+  Total Loan Applications = COUNT(bank_loan_analysis[id])
 
 -- Creating Measure for MTD Loan Applications --
 Formula: MTD Loan Applications = CALCULATE(   TOTALMTD([Total Loan Applications], DateTable[Date])   )
