@@ -36,7 +36,7 @@ High-level KPIs and performance indicators:
 - Average DTI
 - MTD & MoM comparisons
 
-![Summary Page](images/Summary.png)
+
 
 ---
 
@@ -49,7 +49,7 @@ Visual analysis and trends:
 - Home ownership breakdown
 - Geographic distribution (Map)
 
-![Overview Page](images/Overview.png)
+
 
 ---
 
