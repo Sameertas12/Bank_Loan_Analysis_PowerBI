@@ -1,8 +1,16 @@
 -------------------------------------------------------------------------------------------------------------------------------------
+## Total Loan Applications
 
--- Creating Measure for Total Loan Applications --
+```dax
+-- Creating Measure for Total Loan Applications
+-- Counts total loan application records
+Total Loan Applications =
+COUNT ( bank_loan_analysis[id] )
+
+
+-- Creating Measure for Total Loan Applications 
 -- Formula: 
-  Total Loan Applications = COUNT(bank_loan_analysis[id])
+Total Loan Applications = COUNT(bank_loan_analysis[id])
 
 -- Creating Measure for MTD Loan Applications --
 Formula: MTD Loan Applications = CALCULATE(   TOTALMTD([Total Loan Applications], DateTable[Date])   )
