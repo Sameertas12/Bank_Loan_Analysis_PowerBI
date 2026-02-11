@@ -174,7 +174,7 @@ Parameter = {
 
 
 ## Creating Dynamic slicers
-# Creating Dynamic Titles that change based upon the value of slicer
+### Creating Dynamic Titles that change based upon the value of slicer
 ```dax
 -- Dynamic Title for Chart 1 (Month wise Analysis - Line Chart)
 Dynamic Title 1 = 
